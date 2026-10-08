@@ -19,7 +19,7 @@ pipeline:
               insecure: false
         - name: Run Python Tests
           run:
-            shell: python
+            shell: bash
             script: "python3 --version\r
 
               \r
