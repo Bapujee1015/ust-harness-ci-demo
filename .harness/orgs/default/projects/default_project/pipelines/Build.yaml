@@ -1,0 +1,48 @@
+pipeline:
+  stages:
+    - steps:
+        - name: Build
+          id: Build
+          build:
+            uses: gitCloneStep
+            with:
+              connector: GitHub_Connector
+              repo_name: https://github.com/Bapujee1015/ust-harness-ci-demo
+              build:
+                target: Git Branch
+                branch: main
+              pr_merge_strategy: Source Branch
+              depth: "50"
+              lfs_enabled: false
+              debug: false
+              fetch_tags: false
+              insecure: false
+        - name: Run Python Tests
+          run:
+            shell: python
+            script: "python3 --version\r
+
+              \r
+
+              echo \"===== Running Application =====\"\r
+
+              python3 app.py\r
+
+              \r
+
+              echo \"===== Installing pytest =====\"\r
+
+              python3 -m pip install pytest\r
+
+              \r
+
+              echo \"===== Running Unit Tests =====\"\r
+
+              python3 -m pytest test_app.py -v\r
+
+              \r
+
+              echo \"===== CI BUILD SUCCESS =====\""
+          id: Run_Python_Tests
+      name: Build
+      id: Build
