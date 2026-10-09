@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Harness Hello World</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <p>Deployed through Harness CI/CD.</p>
+</body>
+</html>
